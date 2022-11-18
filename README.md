@@ -39,4 +39,8 @@
 - while vs do while - do while will always execute once
 - `break` stops a loop
   - will break a while even when inside it in an `if`
-- for loops avoids having to manually use a `break` in a while or do while
+- for loops
+  - avoids having to manually use a `break` in a while or do while'
+  - 3 clauses: init, conditional, update
+- each function gets own scope
+- nested functions/scopes ok

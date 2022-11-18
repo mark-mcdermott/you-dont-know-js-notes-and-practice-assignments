@@ -20,33 +20,24 @@ const prompt = require('prompt-sync')({sigint: true});
 TAX_RATE = .03;
 PHONE_PRICE = 100;
 ACCESSORY_PRICE = 50;
-SPENDING_THRESHOLD = 100;
-
+SPENDING_THRESHOLD = 200;
 purchaseAmount = 0;
 bankBalance = 500;
 
-
-let anotherPhone = prompt('Would you like to buy a phone (' + currency(PHONE_PRICE) + '): ');
-while (anotherPhone == 'yes') {
+while (purchaseAmount + PHONE_PRICE < bankBalance) {
   purchaseAmount += PHONE_PRICE;
-  
-  let moreAccessories = prompt('would you like to buy an accessory (' + currency(ACCESSORY_PRICE) + '): ');
-  while (moreAccessories == 'yes') {
-
+  console.log('1 phone bought')
+  if (purchaseAmount + ACCESSORY_PRICE < SPENDING_THRESHOLD) {
     purchaseAmount += ACCESSORY_PRICE;
-    moreAccessories = prompt("would you like to buy an another accessory: ");
+    console.log('1 accessory bought')
   }
-
-  anotherPhone = prompt('Another phone?: ');
 } 
 
 const tax = getTax(purchaseAmount)
 const total = purchaseAmount + tax;
-const affordable = (total <= bankBalance) ? true : false;
 
 console.log()
 console.log('total with tax: ' + currency(total));
-affordable ? console.log('You can afford this purchase.') : console.log('You cannot afford this purchase.')
 
 function currency(amount) {
   return '$' + amount.toFixed(2);

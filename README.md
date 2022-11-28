@@ -44,3 +44,38 @@
   - 3 clauses: init, conditional, update
 - each function gets own scope
 - nested functions/scopes ok
+
+### Ch. 2. Into JavaScript (11/28/22)
+- built in types: string, num, bool, null/undefined, object & symbol
+- js bug: 
+```
+a = null;
+typeof a; // returns "object" (should probably be "undefined")
+```
+- undefined is a type:
+```
+a = undefined;
+typeof a; // returns "undefined"
+- only values have types. variables are just containers.
+- object bracket notation can be used when the keys have spaces, special chars, etc
+- array and function should be considered subtypes of object
+- function properties
+  - function can have properties because they're objects
+  - function properties are rarely used
+- String object wrapper 
+  - is a "native"
+  - "boxes" a primitive string value when you use myStr.toUpperCase()
+- implicit/explicit coercion examples:
+  - explicit: `var a = "42"; var b = Number(a)`
+  - implicit: `var a = "42"; var b = a * 1;
+- result of non-booleans coerced into boolean:
+  - falsy:
+    - empty strings
+    - 0, -0, NaN
+    - null, undefined
+    - false
+  - truthy
+    - non-empty strings, nums, arrays, objects & functions
+    - true 
+- incorrect: "== checks value equality and === checks value and type equality"
+- correct: "== checks value equality with coercion allowed and === checks value equality with coercion not allowed"

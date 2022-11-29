@@ -135,6 +135,7 @@ function foo(x) {
 }
 var addOne = foo(1);
 foo(3) // 4
+```
 - module pattern 
 ```
 function User() {
@@ -149,6 +150,55 @@ function User() {
 var fred = User();
 fred.login('fred','password')
 - note new User() is not used
+- .call
+  - uses a different objects method 
+  - `person.fullName.call(person1)` calls fullName, using it on person1
 - this
   - this inside a function does not refer to the function
   - it usually points to an object
+- 4 rules to how this is set
+  - this inside a function (not an object) refers to the global object
+  - this inside an object refers to the object
+  - `foo.call(obj2)` with a this inside foo will refer to obj2
+  - new foo() with a this inside foo is undefined
+- const me = Object.create(person) sets me's prototype to person
+- prototypes
+  - if you reference object property that doesn't exist, it checks the object's prototype reference for the property.
+  - Simpson says creating "fake" class inheritance with prototypes is common, but an abuse of prototype
+  - Simpson says good use of prototype is behavior delegation
+
+### Ch. 3 Into YDKJS (11/29/22)
+- YDKJS is about all parts of js
+- scope/closures book
+  - debunks idea that js is interpreted
+  - (it's compiled at runtime)
+  - lexical scope
+- this/prototypes
+  - this doesn't refer to the function it's in
+  - prototypes only create poor version of inheritance
+  - prototypes are complicated
+- types/grammar
+  - covers coercion 
+  - simpson asserts coercion isn't bad or a flaw in js
+  - simpson asserts we should use coercion
+- async/perf
+  - callbacks are insufficient 
+    - inversion of control trust loss
+    - lack of linear reason-ability
+  - generators pause, yield, resume
+  - combining promises/generators gives effective async
+  - parallelism, web workers
+- es6 and beyond
+  - destructuring 
+  - default param vals 
+  - symbols 
+  - concise methods
+  - computed properties 
+  - arrow functions
+  - block scoping 
+  - promises
+  - generators
+  - iterators 
+  - modules
+  - proxies
+  - weakmaps
